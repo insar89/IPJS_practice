@@ -1,1 +1,3 @@
-console.log('testtest')
+let a = prompt('', '')
+
+console.log("a is" + a)
