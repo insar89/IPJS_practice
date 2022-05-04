@@ -1,3 +1,8 @@
-let a = prompt('', '')
+let a = 10
 
-console.log("a is" + a)
+function test () {
+  a++;
+}
+test();
+
+console.log(a)
