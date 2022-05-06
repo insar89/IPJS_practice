@@ -1,8 +1,3 @@
-let a = 10
+let arr = 'qwer, asdf, zxcv';
 
-function test () {
-  a++;
-}
-test();
-
-console.log(a)
+console.log( arr.split(', ') )
