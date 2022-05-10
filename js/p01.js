@@ -1,3 +1,6 @@
 let arr = 'qwer, asdf, zxcv';
 
-console.log( arr.split(', ') )
+let a = [1, 2];
+let b = [1, 2];
+
+console.log(!!)

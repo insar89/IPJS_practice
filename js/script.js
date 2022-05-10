@@ -1,88 +1,55 @@
+/* Задания на урок:
+
+1) Удалить все рекламные блоки со страницы (правая часть сайта)
+
+2) Изменить жанр фильма, поменять "комедия" на "драма"
+
+3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+Реализовать только при помощи JS
+
+4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+Отсортировать их по алфавиту 
+
+5) Добавить нумерацию выведенных фильмов */
 'use strict';
 
-const personalMovieDB = {
-  count: 0,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: true,
-
-  start: () => {
-    personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели?', '');
-    while (personalMovieDB.count === '' || isNaN(personalMovieDB.count) || personalMovieDB.count === null) {
-      alert('Введите число больше 0');
-      personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-  },
-
-  rememberMyFilms: () => {
-    let lastMovie, lastMovieScore;
-
-    for (let i = 0; i < 2; i++) {
-
-      lastMovie = prompt('Один из последних просмотренных фильмов?', '');
-      if(lastMovie === '' || lastMovie === null || lastMovie.length > 50) {
-        alert('Введите корректное название');
-        i--;
-        continue;
-      }
-
-      lastMovieScore = +prompt('На сколько оцените его?', '');
-      if(lastMovieScore === 0 || isNaN(lastMovieScore)) {
-        alert('Введите число больше 0');
-        i--;
-        continue;
-      }
-
-      personalMovieDB.movies[lastMovie] = lastMovieScore;
-    }
-  },
-
-  detectPersonalLevel: () => {
-    if (personalMovieDB.count < 10) {
-      alert('Просмотрено довольно мало фильмов');
-    } else if (personalMovieDB.count >= 10 || personalMovieDB.count <= 30) {
-      alert('Вы классический зритель');
-    } else if (personalMovieDB.count > 30) {
-      alert('Вы киноман');
-    } else {
-      alert('Произошла ошибка');
-    }
-  },
-
-  toggleVisibleMyDB: () => {
-    personalMovieDB.privat = !personalMovieDB.privat;
-  },
-
-  showMyDB: (hidden) => {
-    if (!hidden) console.log(personalMovieDB);
-  },
-
-  writeYourGenres: () => {
-    let favoriteGenre;
-
-    for (let i = 1; i < 2; i++) {
-      favoriteGenre = prompt(`Введите 3 ваших любимых жанра через ,`, '').toLowerCase();
-      if (favoriteGenre === null || favoriteGenre === '') {
-        alert('Введите корректные жанры');
-        i--;
-        continue;
-      }
-      personalMovieDB.genres = favoriteGenre.split(', ').map( el => el.charAt(0).toUpperCase() + el.slice(1));
-    }
-    personalMovieDB.genres.forEach( (el, i) => console.log(`Любимый жанр #${i+1} - это ${el}`) );
-  }
+const movieDB = {
+    movies: [
+        "ЛAган",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
 };
 
-personalMovieDB.start();
+const ads = document.querySelectorAll('.promo__adv img');
+ads.forEach( el => el.remove() );
 
-personalMovieDB.rememberMyFilms();
+const genre = document.querySelector('.promo__genre');
+genre.textContent = 'ДРАМА';
 
-personalMovieDB.detectPersonalLevel();
+const bg = document.querySelector('.promo__bg');
+bg.style.background = 'url("./img/bg.jpg")';
 
-personalMovieDB.toggleVisibleMyDB();
+const oldList = document.
+    querySelectorAll('.promo__interactive-item');
 
-personalMovieDB.showMyDB(personalMovieDB.privat);
 
-personalMovieDB.writeYourGenres();
+movieDB.movies.sort();
 
+// oldList.forEach( (el, i) => {
+//    el.textContent = `${i+1} ${movieDB.movies[i]}`
+//   });
+
+const list = document.querySelector('.promo__interactive-list');
+
+
+list.innerHTML = '';
+console.log(list);
+// movieDB.movies.forEach( (el, i) => {
+//    list.innerHTML += `
+//    <li class="promo__interactive-item">${i+1} ${movieDB.movies[i]}
+//    <div class="delete"></div>
+//    </li>`
+// });
