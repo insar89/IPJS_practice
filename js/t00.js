@@ -1,7 +1,23 @@
-let arr = [];
+'use strict';
 
-let testArr = ['1', 'smt', 't1', 't2', 'tt']
+// const ul = document.getElementsByTagName('ul');
+//
+// console.log(ul[0]);
+//
+// const second = document.querySelector('.second');
+//
+// console.log(second.parentNode);
+//
+// const current  = document.querySelector('[data-current]');
+//
+// console.log(current.nextElementSibling)
+console.log(document.body.childNodes)
 
-testArr.forEach( el => arr += `${el}`)
+let childElements = [];
 
-console.log(arr)
+for( let node of document.body.childNodes ) {
+  if (node.nodeName === '#comment' || node.nodeName === '#text') continue;
+  childElements.push(node);
+}
+
+console.log(childElements)
