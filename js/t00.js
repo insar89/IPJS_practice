@@ -1,23 +1,16 @@
 'use strict';
 
-// const ul = document.getElementsByTagName('ul');
-//
-// console.log(ul[0]);
-//
-// const second = document.querySelector('.second');
-//
-// console.log(second.parentNode);
-//
-// const current  = document.querySelector('[data-current]');
-//
-// console.log(current.nextElementSibling)
-console.log(document.body.childNodes)
-
-let childElements = [];
-
-for( let node of document.body.childNodes ) {
-  if (node.nodeName === '#comment' || node.nodeName === '#text') continue;
-  childElements.push(node);
+async function* generateSequence(start, end) {
+  for (let i = start; i <= end; i++) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    yield i;
+  }
 }
 
-console.log(childElements)
+(async () => {
+  let g = generateSequence(1, 5);
+  for await (let value of g) {
+    console.log(value);
+  }
+})();
+

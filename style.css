@@ -1,77 +1,38 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 3px solid red;
+}
+.btn-block {
+	padding: 10px;
+	background-color: grey;
+	margin-top: 10px;
+}
+button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
+  border: none;
+  transition: 0.3s all;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
+.blue {
+    background-color: blue;
 }
 
-ul {
-    list-style: none;
+.red {
+    background-color: red;
 }
 
-ul li {
-    padding: 5px;
-    background: #f4f4f4;
-    margin: 5px 0;
-}
-
-header {
-    background: #f4f4f4;
-    padding: 1rem;
-    text-align: center;
-}
-
-.container {
-    margin: auto;
-    width: 500px;
-    overflow: auto;
-    padding: 3rem 2rem;
-}
-
-#my-form {
-    padding: 2rem;
-    background: #f4f4f4;
-}
-
-#my-form label {
-    display: block;
-}
-
-#my-form input[type='text'] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.btn {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-    border: 0;
-    background: #333;
-    color: #fff;
-    border-radius: 5px;
-    margin: 5px 0;
-}
-
-.btn:hover {
-    background: #444;
-}
-
-.bg-dark {
-    background: #333;
-    color: #fff;
-}
-
-.error {
-    background: orangered;
-    color: #fff;
-    padding: 5px;
-    margin: 5px;
+.yellow {
+    background-color: yellow;
 }

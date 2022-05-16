@@ -1,32 +1,34 @@
 'use strict';
 
-const btns = document.querySelectorAll('button'),
-      overlay = document.querySelector('.overlay');
-// let i = 0;
-// const deleteElement = (e) => {
-//   console.log(e.target);
-//   console.log(e.type);
-// };
-//
-//
-// btn.addEventListener('click', deleteElement);
-// overlay.addEventListener('click', deleteElement);
-//
-// const link = document.querySelector("[type='submit']");
-//
-// link.addEventListener('click', e => {
-//   e.preventDefault();
-//   console.log(e.target);
-// });
+//touchstart
+//touchmove
+//touchend
+//touchenter
+//touchleave
+//touchcancel
 
-const test = e => {
-  e.preventDefault();
-  console.log(e.currentTarget);
-};
+window.addEventListener('DOMContentLoaded', () => {
 
-btns.forEach( el => el.addEventListener('click', test, {once: true}));
+  const btns = document.querySelectorAll('button'),
+    wrapper = document.querySelector(".btn-block");
 
-// btns.forEach( el => el.removeEventListener('click', test));
+
+   wrapper.addEventListener('click', e => {
+     e.preventDefault();
+      console.dir(e.target);
+     if( e.target && e.target.matches('.red')) {
+       console.log('Red')
+     }
+   });
+
+   const btn = document.createElement('button');
+   btn.classList.add('red');
+   wrapper.append(btn);
+
+
+
+
+});
 
 
 
